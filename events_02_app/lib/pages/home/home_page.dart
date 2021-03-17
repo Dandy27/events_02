@@ -1,5 +1,6 @@
 import 'package:events_02_app/mobile_breakpoint.dart';
 import 'package:events_02_app/pages/home/widget/app_bar/mobile_app_bar.dart';
+import 'package:events_02_app/pages/home/widget/app_bar/sections/top_section.dart';
 import 'package:events_02_app/pages/home/widget/app_bar/web_app_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,11 @@ class HomePage extends StatelessWidget {
           alignment: Alignment.topCenter,
           child: ConstrainedBox(
             constraints: BoxConstraints(maxWidth: 1400),
-            child: ListView(),
+            child: ListView(
+              children: [
+                TopSection(),
+              ],
+            ),
           ),
         ),
       );
