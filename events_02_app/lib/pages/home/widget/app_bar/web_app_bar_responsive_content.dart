@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class WebAppBarResponsiveContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Expanded(child: LayoutBuilder(builder: (context, constraints){
-    print('biggest ${constraints.biggest} smallest ${constraints.smallest}');
+    return Expanded(child: LayoutBuilder(builder: (context, constraints) {
+      print('biggest ${constraints.biggest} smallest ${constraints.smallest}');
       return Row(
         children: [
           Expanded(
@@ -16,17 +16,44 @@ class WebAppBarResponsiveContent extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  IconButton(icon: Icon(Icons.search), onPressed: (){}),
+                  const SizedBox(width: 4),
+                  IconButton(
+                      icon: Icon(Icons.search),
+                      color: Colors.grey[500],
+                      onPressed: () {}),
                   Expanded(
-                    child: TextField(decoration: InputDecoration(
+                    child: TextField(
+                        decoration: InputDecoration(
                       border: InputBorder.none,
-                      hintText: ('Pesquise alguma coisa aqui')
-                    ),),
-                  )
+                      hintText: 'Pesquise alguma coisa aqui',
+                      isCollapsed: true,
+                    )),
+                  ),
                 ],
               ),
             ),
           ),
+          if (constraints.maxWidth >= 400) ...[
+            SizedBox(width: 32),
+            FlatButton(
+              onPressed: () {},
+              child: Text(
+                'Aprender',
+              ),
+              textColor: Colors.white,
+            )
+          ],
+          if (constraints.maxWidth >= 500) ...[
+            SizedBox(width: 8),
+            FlatButton(
+              onPressed: () {},
+              child: Text(
+                'Flutter',
+              ),
+              textColor: Colors.white,
+            )
+
+          ]
         ],
       );
     }));
